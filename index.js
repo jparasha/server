@@ -3,7 +3,7 @@ const app = express();
 
 
 app.get('/', (req, res) =>{
-    console.log("called /");
+    console.log("called '/'");
     res.send({"Hi" : "there!"});
 
 });

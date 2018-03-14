@@ -11,8 +11,18 @@ passport.use(new GoogleStrategy({
     callbackURL: '/auth/google/callback'
 },
     (accessToken, refreshToken, profile, done) => {
-        console.log(accessToken);
-        console.log(refreshToken);
-        console.log(profile);
-        new User({googleId: profile.id , name: profile.displayName}).save();
+        //console.log(accessToken);
+        //console.log(refreshToken);
+        //console.log(profile);
+        User.findOne({googleId:profile.id})
+        .then((existingUser) =>{
+            if(existingUser){
+                //user exist
+                console.log(profile.id+' Already Registered!');
+            }
+            else{
+                new User({googleId: profile.id , name: profile.displayName}).save();
+            }
+        })   
+        
     }));

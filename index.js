@@ -17,7 +17,7 @@ passport.use(new GoogleStrategy({
 app.get('/test', (req, res) => {
     console.log('test');
     res.send({
-        'What': 'Yay!'
+        'Working?': 'Yay!'
     });
 });
 

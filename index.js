@@ -23,7 +23,7 @@ moongoose.connect(keys.mongoURI);
 app.get('/test', (req, res) => {
     console.log('test');
     res.send({
-        'What': 'Yay!'
+        'Running': 'Yay!'
     });
 });
 

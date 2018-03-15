@@ -19,9 +19,15 @@ passport.use(new GoogleStrategy({
             if(existingUser){
                 //user exist
                 console.log(profile.id+' Already Registered!');
+                done(null, existingUser);
             }
             else{
-                new User({googleId: profile.id , name: profile.displayName}).save();
+                new User({googleId: profile.id , name: profile.displayName})
+                .save()
+                .then(user => done(null, user))
+                .catch((error)=>{
+                    console.log(error);
+                });
             }
         })   
         

@@ -9,8 +9,8 @@ require('./services/passport');
 const app = express();
 app.use(
     cookieSession({
-        maxAge:30*24*60*60*1000,
-        keys:[keys.cookieKey]
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+        keys: [keys.cookieKey]
     })
 );
 app.use(passport.initialize());
@@ -23,7 +23,7 @@ moongoose.connect(keys.mongoURI);
 app.get('/test', (req, res) => {
     console.log('test');
     res.send({
-        'Running': 'Yay!'
+        'Running': 'true!'
     });
 });
 

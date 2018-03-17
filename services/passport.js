@@ -12,20 +12,14 @@ passport.deserializeUser((id, done) => {
         .then(user => {
             done(null, user);
         })
-
 });
-
 passport.use(new GoogleStrategy({
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
     callbackURL: '/auth/google/callback',
     proxy: true
 },
-
     async (accessToken, refreshToken, profile, done) => {
-        //console.log(accessToken);
-        //console.log(refreshToken);
-        //console.log(profile);
         const result = await User.findOne({ googleId: profile.id });
         const existingUser = await result.json();
         if (existingUser) {
@@ -33,10 +27,6 @@ passport.use(new GoogleStrategy({
             console.log(profile.id + ' Already Registered!');
             return done(null, existingUser);
         }
-
         const user = await new User({ googleId: profile.id, name: profile.displayName }).save()
         done(null, user);
-
-
-
     }));

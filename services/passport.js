@@ -21,24 +21,22 @@ passport.use(new GoogleStrategy({
     callbackURL: '/auth/google/callback',
     proxy: true
 },
-    (accessToken, refreshToken, profile, done) => {
+
+    async (accessToken, refreshToken, profile, done) => {
         //console.log(accessToken);
         //console.log(refreshToken);
         //console.log(profile);
-        User.findOne({ googleId: profile.id })
-            .then((existingUser) => {
-                if (existingUser) {
-                    //user exist
-                    console.log(profile.id + ' Already Registered!');
-                    done(null, existingUser);
-                }
-                else {
-                    new User({ googleId: profile.id, name: profile.displayName })
-                        .save()
-                        .then(user => done(null, user))
-                        .catch((error) => console.log(error));
-                }
-            })
-            .catch((error) => console.log(error));
+        const result = await User.findOne({ googleId: profile.id });
+        const existingUser = await result.json();
+        if (existingUser) {
+            //user exist
+            console.log(profile.id + ' Already Registered!');
+            return done(null, existingUser);
+        }
+
+        const user = await new User({ googleId: profile.id, name: profile.displayName }).save()
+        done(null, user);
+
+
 
     }));

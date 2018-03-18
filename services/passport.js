@@ -20,8 +20,9 @@ passport.use(new GoogleStrategy({
     proxy: true
 },
     async (accessToken, refreshToken, profile, done) => {
-        const result = await User.findOne({ googleId: profile.id });
-        const existingUser = await result.json();
+        const existingUser = await User.findOne({ googleId: profile.id });
+        console.log(existingUser);
+        //const existingUser = await result.json();
         if (existingUser) {
             //user exist
             console.log(profile.id + ' Already Registered!');

@@ -29,5 +29,5 @@ class App extends Component {
         );
     }
 }
-console.log(actions);
+//console.log(actions);
 export default connect(null, actions)(App);

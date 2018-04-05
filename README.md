@@ -1,6 +1,5 @@
-# FeedUsBack 
-Feedback Application with payment gateway integration with google oauth *(**Under development**)*
-
+# FeedUsBack *(**Under development**)*
+Feedback Application with payment gateway integration with google oauth 
 ## Tech Stack:
 
    ### Back End:

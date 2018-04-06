@@ -1,7 +1,7 @@
 {
     "name": "server",
     "version": "1.0.0",
-    "description": "",
+    "description": "An application to practice full stack react",
     "main": "index.js",
     "engines": {
         "node": "^8.8.0",

@@ -11,7 +11,7 @@ module.exports = (app) => {
         res.send(req.user);
     });
     app.get('/api/current_user', (req, res) => {
-        console.log('current_user called at :'+ Date());
+        console.log('/current_user called at : '+ Date());
         res.send(req.user);
     });
     app.get('/test', (req, res) => {

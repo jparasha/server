@@ -3,14 +3,11 @@ import { FETCH_USER } from '../actions/types';
 export default function (state = null, action) {
 
     console.log(action);
-    //action unable to be dispatched
-    //needs debugging
-    /// please check
-    console.log('--fetchuserFrom authReducer--', FETCH_USER, action.type);
+    //console.log('--fetchuserFrom authReducer--', FETCH_USER, action.type);
     switch (action.type) {
 
         case FETCH_USER:{
-            console.log('CASE : FETCH_USER ', state);
+            console.log('CASE : FETCH_USER ', state, action.payload);
             return action.payload || false;
         }
         

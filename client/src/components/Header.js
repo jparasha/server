@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 class Header extends Component {
+
+    renderContent(){
+        switch (this.props.auth) {
+            case null: return 'Loading..'
+            case false: return 'Login With Google'
+            default: return 'Welcome '+this.props.auth.name
+        }
+    }
+
     render() {
+        //console.log(this.props);
         return (
             <nav>
                 <div className="nav-wrapper">
@@ -9,9 +19,10 @@ class Header extends Component {
                         Emaily
                     </a>
                     <ul className="right">
-                        <li>
+                        {/* <li>
                             <a> Login With Google </a>
-                        </li>
+                        </li> */}
+                        {this.renderContent()}
                     </ul>
                 </div>
             </nav>

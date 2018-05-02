@@ -4,8 +4,8 @@ class Header extends Component {
 
     renderContent(){
         switch (this.props.auth) {
-            case null: return 'Loading..'
-            case false: return 'Login With Google'
+            case null: return ;
+            case false: return (<li><a href='/auth/google'> Login With Google </a></li>)
             default: return `Welcome ${this.props.auth.name.substr(0,this.props.auth.name.indexOf(' '))}!` ;
         }
     }

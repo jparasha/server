@@ -6,7 +6,7 @@ class Header extends Component {
         switch (this.props.auth) {
             case null: return 'Loading..'
             case false: return 'Login With Google'
-            default: return 'Welcome '+this.props.auth.name
+            default: return `Welcome ${this.props.auth.name.substr(0,this.props.auth.name.indexOf(' '))}!` ;
         }
     }
 

@@ -18,14 +18,15 @@ require('./routes/authRoutes')(app);
 
 if (process.env.NODE_ENV === "production"){
     const path = require ('path');
+    const fs = require('fs');
     console.log('Getting  client/build---',path.resolve(__dirname));//
-    if (path.existsSync(__dirname, 'client')) { 
+    if (fs.existsSync(__dirname, 'client')) { 
         console.log('client exists');
       } 
-    if (path.existsSync(__dirname, 'client', 'build')) { 
+    if (fs.existsSync(__dirname, 'client', 'build')) { 
         console.log('build exists');
       } 
-    if (path.existsSync(__dirname, 'client', 'build', 'index.html')) { 
+    if (fs.existsSync(__dirname, 'client', 'build', 'index.html')) { 
         console.log('index exists');
       } 
     require('client/build');

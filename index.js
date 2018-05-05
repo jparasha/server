@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === "production"){
     if (fs.existsSync(__dirname, 'client', 'build', 'index.html')) { 
         console.log('index exists');
       } 
-    require('client/build');
+    require(path.resolve(__dirname, 'client', 'build'));
     console.log('Got Build');
 
     

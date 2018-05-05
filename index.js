@@ -17,11 +17,12 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 
 if (process.env.NODE_ENV === "production"){
-    console.log('Getting  client/build');
+    const path = require ('path');
+    console.log('Getting  client/build---',path.resolve(__dirname));//
     require('client/build');
     console.log('Got Build');
 
-    const path = require ('path');
+    
     app.get('*', (req, res) =>{
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html' ));
     } );

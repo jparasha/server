@@ -17,7 +17,7 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 
 if (process.env.NODE_ENV === "production"){
-    require('./client/build');
+    require('client/build');
 
     const path = require ('path');
     app.get('*', (req, res) =>{

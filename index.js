@@ -2,10 +2,12 @@ const express = require('express');
 const moongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 require('./models/User');
 require('./services/passport');
 const app = express();
+app.use(bodyParser.json());
 app.use(
     cookieSession({
         maxAge: 15 * 24 * 60 * 60 * 1000,

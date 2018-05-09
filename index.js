@@ -20,9 +20,9 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 
-if (process.env.NODE_ENV === "production"){
+if (process.env.NODE_ENV === "production"){app.use(express.static('client/build'));
     const path = require ('path');
-    const fs = require('fs');
+    /* const fs = require('fs');
     console.log('Getting  client/build---',path.resolve(__dirname));//
     if (fs.existsSync(__dirname, 'client')) { 
         console.log('client exists');
@@ -32,9 +32,10 @@ if (process.env.NODE_ENV === "production"){
       } 
     if (fs.existsSync(__dirname, 'client', 'build', 'index.html')) { 
         console.log('index exists');
-      } 
-    require(path.resolve(__dirname, 'client', 'build'));
-    console.log('Got Build');
+      }  */
+    //require(path.resolve(__dirname, 'client', 'build'));
+    //console.log('Got Build');
+
 
     
     app.get('*', (req, res) =>{

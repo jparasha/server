@@ -13,7 +13,10 @@ var store = createStore(() => reducers, {}, applyMiddleware(reduxThunk));
 ReactDOM.render(
     <Provider store={store}><App /></Provider>,
     document.querySelector('#root')
-); */
+); 
+ERROR WAS: store is declared as var and not const
+
+*/
 
 import 'materialize-css/dist/css/materialize.min.css';
 import React from 'react';

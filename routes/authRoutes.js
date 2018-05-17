@@ -16,6 +16,7 @@ module.exports = (app) => {
         console.log('"/current_user" called at : '+ Date());
         res.send(req.user);
     });
+    // test route
     app.get('/test', (req, res) => {
         console.log('test');
         res.send({

@@ -21,24 +21,9 @@ require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 require('./routes/surveyRoutes')(app);
 
-if (process.env.NODE_ENV === "production"){app.use(express.static('client/build'));
-    const path = require ('path');
-    /* const fs = require('fs');
-    console.log('Getting  client/build---',path.resolve(__dirname));//
-    if (fs.existsSync(__dirname, 'client')) { 
-        console.log('client exists');
-      } 
-    if (fs.existsSync(__dirname, 'client', 'build')) { 
-        console.log('build exists');
-      } 
-    if (fs.existsSync(__dirname, 'client', 'build', 'index.html')) { 
-        console.log('index exists');
-      }  */
-    //require(path.resolve(__dirname, 'client', 'build'));
-    //console.log('Got Build');
-
-
-    
+if (process.env.NODE_ENV === "production"){
+    app.use(express.static('client/build'));
+    const path = require ('path');    
     app.get('*', (req, res) =>{
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html' ));
     } );

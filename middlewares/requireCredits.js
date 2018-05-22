@@ -1,3 +1,4 @@
+//checks for available credit
 module.exports =(req, res, next) =>{
 
     if(req.user.credits < 1) {

@@ -48,7 +48,7 @@ class SurveyForm extends Component {
     }
 
 }
-function validate(){
+function validate(values){
     const errors ={};
 
     if (!values.title){

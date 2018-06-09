@@ -39,9 +39,7 @@ class SurveyForm extends Component {
                         <button type = "submit" className = "teal btn-flat right white-text">
                             Next
                             <i className="material-icons right">done</i>                         
-                        </button>
-                        
-
+                        </button>          
                     </form>
             </div>
         );
@@ -55,7 +53,7 @@ function validate(values){
         if(!values[name]){
             errors[name] = "Please provide a value";
         }
-    })
+    });
 
     return errors;
 }

@@ -5,7 +5,10 @@ export default ({input, label, meta : { error, touched }}) => {
         <div className="formFields">
             <label>{label}</label>
             <input {...input}/>
-            {touched && error}
+            <div className="red-text">
+                 {touched && error}
+            </div>
+           
         </div>
     )
 }

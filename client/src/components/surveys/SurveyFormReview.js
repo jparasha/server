@@ -2,7 +2,7 @@ import React from 'react';
 const SurveyReview = () =>{
     return(
         <div>
-            <h5>Please confirm your entries</h5>
+            <h4>Please confirm your entries</h4>
         </div>
     );
 };

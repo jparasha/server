@@ -1,11 +1,11 @@
 const sendgrid= require('sendgrid');
 const helper= sendgrid.mail;
 const keys = require('../config/keys');
-console.log('===============');
+//console.log('===============');
 class Mailer extends helper.Mail{
     constructor({ subject, recipients  }, content){
         super();
-        console.log('22222222222222222222222222222');
+        //console.log('22222222222222222222222222222');
         this.sgApi = sendgrid(keys.sendGridKey);
         this.from_email= new helper.Email('no-reply@feedusback.com');
         this.subject= subject;
@@ -18,7 +18,7 @@ class Mailer extends helper.Mail{
     }
     formatAddresses(recipients){
         return recipients.map(({email}) =>{
-            console.log('3333333333333333');
+         //   console.log('3333333333333333');
             return new helper.Email(email);
         });
     }
@@ -27,7 +27,7 @@ class Mailer extends helper.Mail{
         const clickTracking = new helper.ClickTracking(true, true);
         trackingSettings.setClickTracking(clickTracking);
         this.addTrackingSettings(trackingSettings);
-        console.log('444444444444444444444');
+        //console.log('444444444444444444444');
     }
     addRecipients(){
         const personalize = new helper.Personalization();
@@ -36,7 +36,7 @@ class Mailer extends helper.Mail{
             personalize.addTo(recipient);
         });
         this.addPersonalization(personalize);
-        console.log('55555555555555555');
+        //console.log('55555555555555555');
     }
     async send(){
         console.log('---------');
@@ -45,9 +45,7 @@ class Mailer extends helper.Mail{
             path : '/v3/mail/send',
             body : this.toJSON()
         });
-        console.log('++++++++++++++++++++++');
-       const response= await this.sgApi.API(request); 
-       console.log('===============');
+        const response= await this.sgApi.API(request); 
        return response;
     }
 }

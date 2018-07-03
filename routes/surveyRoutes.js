@@ -14,7 +14,8 @@ module.exports = app => {
     });
     app.post('/api/surveys/webhooks', (req, res) => {
         const events = _.map(req.body, (event) =>{
-            new URL(event.url).pathname;
+          const pathname=  new URL(event.url).pathname;
+          const p = new Path ('/api/surveys/:survey/:choice');
         });
     })
     app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {

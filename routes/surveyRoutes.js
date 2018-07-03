@@ -13,7 +13,9 @@ module.exports = app => {
         res.send('Thanks for feedback :)');
     });
     app.post('/api/surveys/webhooks', (req, res) => {
-        
+        const events = _.map(req.body, (event) =>{
+            new URL(event.url).pathname;
+        });
     })
     app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
         const {

@@ -13,7 +13,7 @@ module.exports = app => {
         res.send('Thanks for feedback :)');
     });
     app.post('/api/surveys/webhooks', (req, res) => {
-        const events = _.map(req.body, (event) =>{
+          const events = _.map(req.body, (event) =>{
           const pathname=  new URL(event.url).pathname;
           const p = new Path ('/api/surveys/:survey/:choice');
           console.log(p.test(pathname));

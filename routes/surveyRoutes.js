@@ -17,6 +17,9 @@ module.exports = app => {
           const pathname=  new URL(event.url).pathname;
           const p = new Path ('/api/surveys/:survey/:choice');
           console.log(p.test(pathname));
+          if (match){
+              return match;
+          }
         });
     })
     app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {

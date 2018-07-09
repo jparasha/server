@@ -21,6 +21,7 @@ module.exports = app => {
               return { email, surveyId: match.surveyId, choice: match.choice };
           }
         });
+        console.log(events);
     })
     app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
         const {

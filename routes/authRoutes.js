@@ -18,7 +18,7 @@ module.exports = (app) => {
     });
     // test route
     app.get('/test', (req, res) => {
-        console.log('test');
+        console.log('test success!');
         res.send({
             'Running': 'true!'
         });
